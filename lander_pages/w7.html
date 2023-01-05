@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0014)about:internet -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.turbo-progress-bar {
   position: fixed;
   display: block;
@@ -20,162 +19,7 @@
 <meta name="csrf-token" content="4f5GnW3rDnDq1gqwk6A-Q0T-E7QfMN0_sD1BhMbBmAZI8vU5iAlX0fPyDvddRUz_MU--y_ar7EoUigyyI4Yaug">
   <meta name="csp-nonce">
 
-    <!-- Snippets Start -->
-    <script async="" src="./w7_files/fbevents.js.download"></script><script type="text/javascript" id="ipl4t" data-controller="snippets--predefined-templates--fbq-uuid-to-sub-five-controller">
-    !function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-            n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = '2.0';
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s)
-    }(window, document, 'script',
-        ' https://connect.facebook.net/en_US/fbevents.js');
-
-    (function () {
-        try {
-            var rewriteDOM = function () {
-                Promise.resolve().then(function () {
-                    var uuidGen = function () {
-                        return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
-                            (
-                                c ^
-                                (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
-                            ).toString(16)
-                        );
-                    };
-                    var uuid = uuidGen();
-                    var options = {
-                        external_id: uuid
-                    }
-                    if (typeof fbq != 'undefined' && fbq) {
-                        fbq('init', '1588491784942115', options);
-                        fbq('track', 'PageView', options);
-                    } else {
-                        console.log('[params rewriting] no fbq pixel source to init');
-                    }
-                    var addParamsToUrl = function (url) {
-                        return params =>
-                            url + (url.indexOf("?") !== -1 ? "&" : "?") + params.substr(1);
-                    };
-
-                    var leadFormComponents = document.querySelectorAll("[data-controller=lead-forms--component]");
-                    var pageLinks = document.querySelectorAll("a");
-                    var forms = document.querySelectorAll("form");
-                    var answers = document.querySelectorAll(".button.answer[onclick]")
-                    var redirectableEl = document.querySelectorAll("[data-redirect]");
-                    var newTabRedirectableEl = document.querySelectorAll("[data-new-tab-redirect]");
-                    var linkRedirectCurrentTabUrlValue = document.querySelectorAll("[data-link-redirect-current-tab-url-value]")
-                    var linkRedirectNewTabUrlValue = document.querySelectorAll("[data-link-redirect-new-tab-url-value]")
-
-
-                    console.log('leadFormComponents', leadFormComponents)
-                    console.log('forms', forms)
-                    window.addEventListener('DOMContentLoaded', (event) => {
-                        console.log('DOM fully loaded and parsed');
-                        console.log("dom ready leadform", document.querySelectorAll("[data-controller=lead-forms--component]"))
-                    });
-                    Array.from(leadFormComponents).forEach(leadFormComponent => {
-                        var submitRedirectAttr = 'data-lead-forms--component-submit-redirect-url-value'
-                        var popupRedirectAttr = 'data-lead-forms--component-submit-popup-url-value'
-                        var redirectLink = leadFormComponent.getAttribute(submitRedirectAttr)
-                        var popupRedirect = leadFormComponent.getAttribute(popupRedirectAttr)
-                        if (redirectLink) leadFormComponent.setAttribute(submitRedirectAttr, addParamsToUrl(redirectLink)("&sub5=" + uuid));
-                        if (popupRedirect) leadFormComponent.setAttribute(popupRedirectAttr, addParamsToUrl(popupRedirect)("&sub5=" + uuid));
-                    })
-                    Array.from(forms).forEach(form => {
-                        var redirect_link = form.getAttribute('redirect_link')
-                        var new_tab_redirect_link = form.getAttribute('new_tab_redirect_link')
-                        if (redirect_link) form.setAttribute('redirect_link', addParamsToUrl(redirect_link)("&sub5=" + uuid));
-                        if (new_tab_redirect_link) form.setAttribute('new_tab_redirect_link', addParamsToUrl(new_tab_redirect_link)("&sub5=" + uuid));
-                    })
-                    Array.from(redirectableEl).forEach(form => {
-                        var redirect_link = form.getAttribute('data-redirect')
-                        if (redirect_link) form.setAttribute('data-redirect', addParamsToUrl(redirect_link)("&sub5=" + uuid));
-                    })
-                    Array.from(newTabRedirectableEl).forEach(form => {
-                        var new_tab_redirect_link = form.getAttribute('data-new-tab-redirect')
-                        if (new_tab_redirect_link) form.setAttribute('data-new-tab-redirect', addParamsToUrl(new_tab_redirect_link)("&sub5=" + uuid));
-                    })
-                    Array.from(linkRedirectCurrentTabUrlValue).forEach(form => {
-                        var redirectLink = form.getAttribute('data-link-redirect-current-tab-url-value')
-                        if (redirectLink) form.setAttribute('data-link-redirect-current-tab-url-value', addParamsToUrl(redirectLink)("&sub5=" + uuid));
-                    })
-                    Array.from(linkRedirectNewTabUrlValue).forEach(form => {
-                        var redirectLink = form.getAttribute('data-link-redirect-new-tab-url-value')
-                        if (redirectLink) form.setAttribute('data-link-redirect-new-tab-url-value', addParamsToUrl(redirectLink)("&sub5=" + uuid));
-                    })
-                    var extractUrlFromHandler = (clickHandlerStr) => {
-                        return clickHandlerStr.slice(clickHandlerStr.indexOf('https'), clickHandlerStr.lastIndexOf("'"));
-                    }
-                    var extractEverythingBeforeUrl = (clickHandlerStr) => {
-                        return clickHandlerStr.slice(0, clickHandlerStr.indexOf('https'))
-                    }
-                    var extractEverythingAfterUrl = (clickHandlerStr) => {
-                        return clickHandlerStr.slice(clickHandlerStr.lastIndexOf("'"), clickHandlerStr.length)
-                    }
-                    var formatNewHandler = (oldHandlerStr, url) => {
-                        return `${extractEverythingBeforeUrl(oldHandlerStr)}${url}${extractEverythingAfterUrl(oldHandlerStr)}`
-                    }
-                    Array.from(answers).forEach(answer => {
-                        var clickHandlerStr = answer.getAttribute("onclick")
-                        if (extractUrlFromHandler(clickHandlerStr)) {
-                            parsedUrl = addParamsToUrl(extractUrlFromHandler(clickHandlerStr))("&sub5=" + uuid)
-                            answer.setAttribute('onclick', formatNewHandler(clickHandlerStr, parsedUrl))
-                        }
-                    })
-                    Array.from(pageLinks).forEach(link => {
-                        var href = link.href;
-                        if (href) link.href = addParamsToUrl(href)("&sub5=" + uuid);
-                    });
-
-                    function getMetaValue(name) {
-                        const element = document?.head?.querySelector(`meta[name="${name}"]`)
-                        return element?.getAttribute("content")
-                    }
-
-                    function saveToLS(key, value) {
-                        return new Promise((resolve, reject) => {
-                            try {
-                                localStorage.setItem(key, JSON.stringify(value))
-                                const results = JSON.parse(localStorage.getItem(key))
-                                resolve(results)
-                            } catch (error) {
-                                reject(error)
-                            }
-                        })
-                    }
-
-                    saveToLS("fb_sub_five", uuid).then(() => {
-                        window.dispatchEvent(new Event("storage"))
-                        console.log('teststorage')
-                    })
-                });
-            }
-            if (document && document.readyState && document.readyState === "complete") {
-                rewriteDOM()
-            } else {
-                window.addEventListener("DOMContentLoaded", () => {
-                    rewriteDOM()
-                });
-            }
-        } catch (e) {
-            console.log('[params rewriting] ERROR', e)
-        }
-    }())
-</script>
-
-
-<!-- Snippet End -->
+    
 
 
     <link rel="stylesheet" href="./w7_files/604.css" media="all" data-turbo-track="reload" defer="defer">
@@ -201,7 +45,7 @@
   </style>
 <script type="text/javascript" charset="UTF-8" src="./w7_files/common.js.download"></script><script type="text/javascript" charset="UTF-8" src="./w7_files/util.js.download"></script></head>
 
-<body data-lander-page-id="20" data-controller="modal event-tracker" data-modal-hidden-class="!hidden" data-session-location="{&quot;ip&quot;:&quot;45.83.216.69&quot;,&quot;type&quot;:&quot;ipv4&quot;,&quot;continent_code&quot;:&quot;EU&quot;,&quot;continent_name&quot;:&quot;Europe&quot;,&quot;country_code&quot;:&quot;BG&quot;,&quot;country_name&quot;:&quot;Bulgaria&quot;,&quot;region_code&quot;:&quot;08&quot;,&quot;region_name&quot;:&quot;Dobrich&quot;,&quot;city&quot;:&quot;Dobrich&quot;,&quot;zip&quot;:&quot;9300&quot;,&quot;latitude&quot;:43.564720153808594,&quot;longitude&quot;:27.831939697265625,&quot;location&quot;:{&quot;geoname_id&quot;:726418,&quot;capital&quot;:&quot;Sofia&quot;,&quot;languages&quot;:[{&quot;code&quot;:&quot;bg&quot;,&quot;name&quot;:&quot;Bulgarian&quot;,&quot;native&quot;:&quot;Български&quot;}],&quot;country_flag&quot;:&quot;https://assets.ipstack.com/flags/bg.svg&quot;,&quot;country_flag_emoji&quot;:&quot;🇧🇬&quot;,&quot;country_flag_emoji_unicode&quot;:&quot;U+1F1E7 U+1F1EC&quot;,&quot;calling_code&quot;:&quot;359&quot;,&quot;is_eu&quot;:true},&quot;time_zone&quot;:{&quot;id&quot;:&quot;Europe/Sofia&quot;,&quot;current_time&quot;:&quot;2023-01-05T15:24:34+02:00&quot;,&quot;gmt_offset&quot;:7200,&quot;code&quot;:&quot;EET&quot;,&quot;is_daylight_saving&quot;:false},&quot;currency&quot;:{&quot;code&quot;:&quot;BGN&quot;,&quot;name&quot;:&quot;Bulgarian Lev&quot;,&quot;plural&quot;:&quot;Bulgarian leva&quot;,&quot;symbol&quot;:&quot;BGN&quot;,&quot;symbol_native&quot;:&quot;лв.&quot;},&quot;connection&quot;:{&quot;asn&quot;:12436,&quot;isp&quot;:&quot;Bergon Internet Ltd.&quot;}}" data-hidden-referrer="" data-action="click-&gt;event-tracker#handleClick">
+<body>
 
 
 
@@ -212,7 +56,7 @@
           </b></div><div id="i8zij" class="gjs-cell">
         </div></div><div id="i08l">
       </div><div id="igfck">(If you're seeing this page, you most likely live in a qualified zip code. (Check Below)
-        <br></div></div></div><div id="iw5sq" class="gjs-row"><div class="gjs-cell"><div data-gjs="redirectable_element" data-controller="link-redirect" data-link-redirect-current-tab-url-value="https://www.andd56trk.com/8LJN3/72WMLF3/?sub5=ddd551cb-3658-4746-9af8-e028575b61fe" data-link-redirect-new-tab-url-value="" data-action="click-&gt;link-redirect#interceptClickWithRedirect" class="cursor-pointer"><img id="ihnjw" src="./w7_files/1592838a-artboard-5-1_10ep08a000000000000028.png"></div></div></div><div id="ifx38" class="gjs-row">
+        <br></div></div></div><div id="iw5sq" class="gjs-row"><div class="gjs-cell"><div data-gjs="redirectable_element" data-controller="link-redirect" data-link-redirect-current-tab-url-value="https://www.andd56trk.com/cmp/5657H/6PFHTQQ/" data-link-redirect-new-tab-url-value="" data-action="click-&gt;link-redirect#interceptClickWithRedirect" class="cursor-pointer"><img id="ihnjw" src="./w7_files/1592838a-artboard-5-1_10ep08a000000000000028.png"></div></div></div><div id="ifx38" class="gjs-row">
   </div><div id="ip45x" class="gjs-row"><div class="gjs-cell"><div class="gjs-row"><div id="ib6ni" class="gjs-cell">
         </div><div class="gjs-cell"><div id="ixvd8"><b>Energy-Efficient windows
             </b> are 
@@ -229,10 +73,10 @@
     </div></div><div id="imzbb" class="gjs-row"><div id="inxla" class="gjs-cell"><div id="iq4k4"><b id="i5tol">Click Below To Check Zip Code Eligibility
         </b></div><div id="ix8ty">(Only Takes 30 Seconds to Find Local Contractors)
         <br></div><div id="io4qb" class="gjs-row"><div id="io79l" class="gjs-cell"><div class="gjs-row"><div id="iv8uu" class="gjs-cell">
-            </div><div class="gjs-cell"><div data-gjs="redirectable_element" data-controller="link-redirect" data-link-redirect-current-tab-url-value="https://www.andd56trk.com/8LJN3/72WMLF3/?sub5=ddd551cb-3658-4746-9af8-e028575b61fe" data-link-redirect-new-tab-url-value="" data-action="click-&gt;link-redirect#interceptClickWithRedirect" class="cursor-pointer"><button draggable="true" data-controller="button-base" data-action="button-base#click" class="shadow rounded w-full py-4 my-2 text-2lg text-white bg-primary"><b id="iumbf">
+            </div><div class="gjs-cell"><div data-gjs="redirectable_element" data-controller="link-redirect" data-link-redirect-current-tab-url-value="https://www.andd56trk.com/cmp/5657H/6PFHTQQ/" data-link-redirect-new-tab-url-value="" data-action="click-&gt;link-redirect#interceptClickWithRedirect" class="cursor-pointer"><button draggable="true" data-controller="button-base" data-action="button-base#click" class="shadow rounded w-full py-4 my-2 text-2lg text-white bg-primary"><b id="iumbf">
                   Check My Zip Code Now
                   </b></button></div></div><div id="iwgdt" class="gjs-cell">
-            </div></div></div></div></div></div><div class="gjs-row"><div id="i8kam" class="gjs-cell"><a id="iwsdj" href="https://usadvantages.com/lander_pages/20/privacy?sub5=ddd551cb-3658-4746-9af8-e028575b61fe">Privacy</a><a id="ix0lj" href="https://usadvantages.com/lander_pages/20/terms?sub5=ddd551cb-3658-4746-9af8-e028575b61fe">&nbsp;| Terms Of Service</a><div id="i7cst">This website is not endorsed by Facebook in any way.
+            </div></div></div></div></div></div><div class="gjs-row"><div id="i8kam" class="gjs-cell"><a id="iwsdj" href="privacy">Privacy</a><a id="ix0lj" href="terms">&nbsp;| Terms Of Service</a><div id="i7cst">This website is not endorsed by Facebook in any way.
         <br><br><br><br>This website helps users get the best information so they can make informed decisions and save money.This article is for demo purposes only. By proceeding you are agreeing to our terms and conditions.
       </div></div></div>
   <style>
